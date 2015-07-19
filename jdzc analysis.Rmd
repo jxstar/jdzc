@@ -232,6 +232,7 @@ u.gt=group_by(user,funder)
 u.sgt=summarise(u.gt,project.num=n(),invest.pro=mean(price),invest.tot=sum(price),invest.max=max(price),
                 start=sum(start),support=max(support))
 u.sgt=arrange(u.sgt,desc(invest.tot))
+cat("number of unique investors,",nrow(u.sgt),"\n")
 
 knitr::kable(head(u.sgt,10),caption=" Investor Top10 Table")
 #describe(u.sgt)
